@@ -2,6 +2,9 @@ import os
 from dotenv import load_dotenv
 
 base_dir = os.getcwd()
+outer_dir = os.path.join(base_dir, "..")
+outer_dir = os.path.abspath(outer_dir)
+data_dir = os.path.join(outer_dir, 'data')
 
 db_host = os.getenv('DB_HOST')
 db_port = os.getenv('DB_PORT')
