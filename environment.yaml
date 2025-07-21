@@ -1,0 +1,9 @@
+name: private-equity
+channels:
+ - defaults
+ - conda-forge
+ - anaconda
+dependencies:
+ - pandas
+ - python-dotenv
+ - psycopg2-binary
