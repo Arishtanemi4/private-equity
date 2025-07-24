@@ -1,6 +1,5 @@
 import os
 import psycopg2
-import importlib
 import pandas as pd
 import __init__ as ini
 

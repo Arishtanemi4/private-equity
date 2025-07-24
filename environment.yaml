@@ -8,3 +8,5 @@ dependencies:
  - openpyxl
  - python-dotenv
  - psycopg2-binary
+ - fastapi
+ - uvicorn
