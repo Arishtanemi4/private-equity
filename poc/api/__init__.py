@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+__all__ = ["app", "macro"]
+
 base_dir = os.getcwd()
 outer_dir = os.path.join(base_dir, "..")
 outer_dir = os.path.abspath(outer_dir)

@@ -1,6 +1,8 @@
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+
 base_dir = os.getcwd()
 outer_dir = os.path.join(base_dir, "..")
 outer_dir = os.path.abspath(outer_dir)
