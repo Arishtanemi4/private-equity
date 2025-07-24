@@ -56,7 +56,6 @@ def extract_pnl(file_name):
     pnlt = add_fy_quarter_column(pnlt)                    # Adding fy column
 
     company_name = file_name.split('.')[0]                # Fetching company_name from file_name
-
     pnlt['company_name'] = company_name                   # Assigning company_name to all rows of dataframe
 
     return pnlt
