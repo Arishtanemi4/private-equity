@@ -179,6 +179,8 @@ def main():
     # Close DB connection
     conn.close()
 
+    #Committing this
+
 # Entry point for script
 if __name__ == "__main__":
     main()
