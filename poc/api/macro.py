@@ -18,10 +18,10 @@ def get_pnl(event: dict = Depends(query_params)):
     conn = psycopg2.connect(ini.dsn)
     query = f"""
         SELECT * FROM financials.pnl
-        WHERE company_name = {event['company_name']} AND fy = {event['fy']}
+        WHERE company_name = %s AND fy = %s
     """
 
-    df = pd.read_sql(query, conn)
+    df = pd.read_sql(query, conn, params=(event['company_name'], event['fy']))
     conn.close()
 
     if df.empty:
@@ -34,10 +34,10 @@ def get_bs(event: dict = Depends(query_params)):
     conn = psycopg2.connect(ini.dsn)
     query = f"""
         SELECT * FROM financials.bs
-        WHERE company_name = {event['company_name']} AND fy = {event['fy']}
+        WHERE company_name = %s AND fy = %s
     """
 
-    df = pd.read_sql(query, conn)
+    df = pd.read_sql(query, conn, params=(event['company_name'], event['fy']))
     conn.close()
 
     if df.empty:
@@ -50,10 +50,10 @@ def get_cf(event: dict = Depends(query_params)):
     conn = psycopg2.connect(ini.dsn)
     query = f"""
         SELECT * FROM financials.cf
-        WHERE company_name = {event['company_name']} AND fy = {event['fy']}
+        WHERE company_name = %s AND fy = %s
     """
 
-    df = pd.read_sql(query, conn)
+    df = pd.read_sql(query, conn, params=(event['company_name'], event['fy']))
     conn.close()
 
     if df.empty:
