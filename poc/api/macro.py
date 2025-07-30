@@ -28,3 +28,35 @@ def get_pnl(event: dict = Depends(query_params)):
         return {"message": "No data found for the given company and FY."}
 
     return df.to_dict(orient="records")
+
+
+def get_bs(event: dict = Depends(query_params)):
+    conn = psycopg2.connect(ini.dsn)
+    query = f"""
+        SELECT * FROM financials.bs
+        WHERE company_name = {event['company_name']} AND fy = {event['fy']}
+    """
+
+    df = pd.read_sql(query, conn)
+    conn.close()
+
+    if df.empty:
+        return {"message": "No data found for the given company and FY."}
+
+    return df.to_dict(orient="records")
+
+
+def get_cf(event: dict = Depends(query_params)):
+    conn = psycopg2.connect(ini.dsn)
+    query = f"""
+        SELECT * FROM financials.cf
+        WHERE company_name = {event['company_name']} AND fy = {event['fy']}
+    """
+
+    df = pd.read_sql(query, conn)
+    conn.close()
+
+    if df.empty:
+        return {"message": "No data found for the given company and FY."}
+
+    return df.to_dict(orient="records")
